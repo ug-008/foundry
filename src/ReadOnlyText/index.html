@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <script src="../../lib/VSS.SDK.min.js"></script>
+    </head>
+
+    <body style="overflow:auto;">
+
+        <script>
+            VSS.init({
+                usePlatformScripts: true,
+                explicitNotifyLoaded: true, 
+                usePlatformStyles: true,
+                applyTheme: true
+            })
+        </script>
+
+        <script src="index.js"></script>
+
+        <style>
+            #read-only-container {
+                font-size: 14px;
+                padding: 2.5px 7px;
+                border-style: solid;
+                border-width: 1px 1px 1px 1px;
+                border-color: transparent;
+            }
+
+            #read-only-container:hover {
+                border-color: lightgrey;
+            }
+        </style>
+
+        <div id="read-only-container" style="display: none;">
+            <span id="read-only-content"></span>
+        </div>
+
+    </body>
+
+</html>

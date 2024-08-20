@@ -1,0 +1,26 @@
+{
+	"Pass": {
+        "featherIcon": "triangle",
+        "style": {
+            "color": "#008000"
+        }
+    }, 
+	"Fail": {
+        "featherIcon": "square",
+        "style": {
+            "color": "red"
+        }
+	}, 
+	"New": {
+        "featherIcon": "circle",
+        "style": {
+            "color": "blue"
+        }
+	},
+	"NA": {
+        "featherIcon": "octagon",
+        "style": {
+            "color": "black"
+        }
+	}
+}

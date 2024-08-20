@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <script src="../../lib/VSS.SDK.min.js"></script>
+    </head>
+
+    <body style="overflow:auto;">
+
+        <script>
+            VSS.init({
+                usePlatformScripts: true,
+                explicitNotifyLoaded: true, 
+                usePlatformStyles: true,
+                applyTheme: true
+            })
+        </script>
+
+        <script src="index.js"></script>
+        <style>
+            #main-container {
+                display: none;
+                padding: 2.5px 5px;
+                border-width: 1px;
+                border-style: solid;
+                border-color: transparent;
+            }
+            #main-container:hover {
+                border-color: lightgray;
+            }
+            #main-container img {
+                visibility: hidden;
+            }
+            #main-container:hover img {
+                visibility: visible;
+            }
+            #main-container #dateTime {
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                flex: 1
+            }
+        </style>
+        <div id='main-container'>
+            <span id="dateTime"></span>
+            <img src="calendar.png" height="16"/>
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <script src="../../lib/VSS.SDK.min.js"></script>
+    </head>
+
+    <body style="overflow:auto;">
+
+        <script>
+            VSS.init({
+                usePlatformScripts: true,
+                explicitNotifyLoaded: true, 
+                usePlatformStyles: true,
+                applyTheme: true
+            })
+
+            VSS.ready(function () {
+                VSS.require(["index.js", "TFS/WorkItemTracking/Services"], function (app, service) {
+                    app.init(service)
+                    VSS.notifyLoadSucceeded();
+                });
+            })
+        </script>     
+
+        <style>
+            :root {
+                --ux-bg-color: whitesmoke;
+                --ux-border-color: lightgrey;
+                --ui-highlight: red;
+            }
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            html, body {
+                overflow: hidden;
+            }
+            #__selectOptions__ {
+                width: 100%;
+                color: var(--text-primary-color, black);
+                display: flex;
+                flex-direction: column;
+                margin-top: 2.5px;
+            }
+            #__selectOptions__ #placeholder {
+                display: flex;
+                flex-direction: row;
+                padding: 1px 5px;
+                border: 1px solid var(--ux-border-color);
+                color: var(--text-primary-color, black);
+                align-items: center;
+            }
+            #__selectOptions__ #placeholder input#filter {
+                width: 100%;
+                border-width: 0;
+                padding: 2.5px 5px 2.5px 0 ;
+                flex: 1;
+                background: transparent;
+                color: var(--text-primary-color, black);
+                outline: none;
+                font-size: 14px;
+            }
+            #__selectOptions__ #placeholder ::placeholder {
+                /* modern browser */
+                /* color: var(--text-primary-color, black); */
+                font-style: italic;
+            }
+            #__selectOptions__ #placeholder #dropArrow {
+                display: flex;
+                align-items: center;
+                /* border-left: 1px solid var(--ux-border-color); */
+                justify-content: center;
+                width: 25px;
+            }
+            #selectedItemUi {
+                margin-bottom: 2.5px;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+            #selectedItemUi div {
+                display: flex;
+                align-items: center;
+                background: rgba(var(--palette-neutral-4), 1);
+                margin: 0 0 1px;
+                padding: 2.5px 10px;
+            }
+            #selectedItemUi div .spanText,
+            #selectedItemUi div .spanCancel,
+            #selectedItemUi div .spanBullet {
+                display: flex;
+                align-items: center;
+            }
+            #selectedItemUi div .spanText {
+                flex: 1;
+                overflow: hidden;
+                white-space:nowrap;
+                text-overflow:ellipsis;
+                display: block;
+            }
+            #selectedItemUi div .spanBullet {
+                font-weight: 500;
+                font-size: 18px;
+                padding-right: 5px;
+            }
+            #selectedItemUi div .spanCancel {
+                font-size: 12px;
+                cursor: pointer;
+                padding: 0 5px;
+            }
+            #__sBoard__ {
+                flex-direction: column;
+                padding-bottom: 10px;
+            }
+            #__dropList__ {
+                overflow: auto;
+                max-height: 150px;
+                border: 1px solid rgba(var(--palette-neutral-4), 1);
+                border-width: 0 1px 1px 1px;
+                box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                display: flex;
+                flex-direction: column;
+            }
+            #__dropList__ .__listItems__ {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            #__selectOptions__ #__dropList__ .__listItems__ .__listItem__ {
+                display: flex;
+                align-items: center;
+                padding-left: 5px;
+            }
+            #__selectOptions__ #__dropList__ .__listItems__ .__listItem__:hover {
+                font-weight: 500;
+                background: blue;
+            }
+            #__selectOptions__ #__dropList__ .__listItems__ .__listItem__:hover .__text__ {
+                color: white;
+            }
+            #__selectOptions__ #__dropList__ .__listItems__ .__listItem__ .__text__ {
+                line-height: 25px;
+                flex: 1;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space:nowrap;
+                padding-left: 5px;
+            }
+            #__selectOptions__ #__dropList__ .__listItems__ .__listItem__ .__checkbox__ {
+                height: 15px;
+                width: 15px;
+                background-color: transparent;
+                outline: none;
+                border: 1px solid var(--component-grid-row-hover-color, whitesmoke);
+                border-radius: 0;
+            }
+            #__selectOptions__ #__dropList__ .__notFound__ {
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-style: italic;
+                opacity: 0.5;
+                color: red;
+            }
+            #__selectOptions__ #placeholder #loadComplete {
+                width: 20px;
+                height: 20px;
+                /* display: none; */
+            }
+            #__selectOptions__ #placeholder #spinner-container {
+                display: flex;
+            }
+            #__selectOptions__ #placeholder #spinner-container span {
+                margin-left: 5px;
+                color: var(--text-primary-color, black);
+                font-size: 10px;
+                display: flex;
+                align-items: center;
+            }
+        </style>
+
+        <div id="__selectOptions__">
+            <div id="selectedItemUi">
+                <!-- Populate -->
+            </div>
+            <div id="__space__" class="__dd__">
+                <div id="placeholder" class="__dd__">
+                    <form autocomplete="off" style="display: flex; flex:1" class="__dd__">
+                        <input id="filter" class="__dd__" type="text" placeholder="Select" />
+                    </form>
+                    <div id="dropArrow" class="__dd__">
+                        <img id="loadComplete" class="__dd__" src="arrow-head.png"/>
+                    </div>
+                </div>
+                <div id="__sBoard__" >
+                    <div id="__dropList__" class="__dd__">
+                        <!-- Populate -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+
+</html>

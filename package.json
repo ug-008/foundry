@@ -1,0 +1,23 @@
+{
+  "name": "Foundry",
+  "version": "1.0.0",
+  "description": "HP Foundry add-ons",
+  "main": "index.js",
+  "author": "Franklin Okoye",
+  "license": "ISC",
+  "keywords": [],
+  "scripts": {
+    "publish": "node manifest.mjs",
+    "test-ui": "open-cli src/TestCases/index.html",
+    "start": "lite-server"
+  },
+  "dependencies": {
+    "jquery": "^3.6.4",
+    "lite-server": "^2.6.1",
+    "shelljs": "^0.8.5",
+    "vss-web-extension-sdk": "^5.141.0"
+  },
+  "devDependencies": {
+    "open-cli": "^7.1.0"
+  }
+}

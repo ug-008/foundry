@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <script src="../../lib/VSS.SDK.min.js"></script>
+    </head>
+
+    <body style="overflow:auto;">
+
+        <script>
+            VSS.init({
+                usePlatformScripts: true,
+                explicitNotifyLoaded: true, 
+                usePlatformStyles: true,
+                applyTheme: true
+            })
+        </script>
+
+        <script src="index.js"></script>
+        <style>
+            #fxCalc {
+                font-size: 14px;
+                padding: 1px 2px;
+                display: flex;
+                border: 1px solid lightgrey;
+                width: fit-content;
+                align-items: center;
+            }
+            #fxCalc span:first-child {
+                min-width: 20px;
+            }
+            #fxCalc span:nth-child(2) {
+                flex: 1;
+                min-width: 30px;
+            }
+        </style>
+        <div style="padding-top: 5px;margin-left: 5px;">
+            <div id="fxCalc">
+                <span id="rate-eval"></span>
+                <span id="rate-color">&nbsp;</span>
+           </div>
+        </div>
+
+    </body>
+
+</html>

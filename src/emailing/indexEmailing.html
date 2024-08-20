@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Temp</title>
+    </head>
+    <body>
+        <section style="background: whitesmoke;padding: 10px 10px;">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher">
+            <style>
+                .main {
+                    background: white;
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 960px; 
+                    margin: auto;
+                    padding-bottom: 50px;
+                }
+
+                .row {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-family: 'Philosopher', sans-serif;
+                    padding: 30px 30px 0;
+                }
+
+                .timeline-container {
+                    margin: 0;
+                    padding: 30px;
+                    /* background-image: url("cmp001.jpg");
+                    background-size: 100%;
+                    background-repeat: no-repeat; */
+                }
+
+                .timeline-container a {
+                    background: blue;
+                    color: white;
+                    text-decoration: none;
+                    padding:15px 20px;
+                    font-size: 1.5em;
+                    min-width: 150px;
+                    text-align: center;
+                }
+
+                .timeline {
+                    position: relative;
+                    margin-bottom: 10px;
+                }
+
+                .timeline span {
+                    position: relative;
+                    display: inline-block;
+                    font-size: 2.8em;
+                    color: red;
+                    /* text-transform: uppercase; */
+                    animation: flip 5s infinite;
+                    animation-delay: calc(.1s * var(--i))
+                }
+
+                @keyframes flip {
+                    0%,80% {
+                        transform: rotateY(360deg) 
+                    }
+                }
+
+                .message p, .message .par-list {
+                    width: 90%;
+                }
+
+                .message p {
+                    text-align: justify;
+                    text-justify: inter-word;
+                }
+
+                .message .par-list {
+                    padding-left: 20px;
+                    margin: 10px 0;
+                }
+            </style>
+            <div class="main">
+                <div class="row">
+                    <span style="font-size: 2.5em;">Integrity @ HP</span>
+                    <span style="padding-top: 10px;">FOR NEW HIRE</span>
+                </div>
+                <hr style="background: lightgray;width: 90%;height: 1px;border-width:0;">
+                <div class="row message">
+                    <span style="font-size: 2em;">Hi Peter!</span>
+                    <p>
+                        I hope this message finds you well. 
+                        I am reaching out to remind you about the <strong>Integrity @ HP Training For New Hire</strong> 
+                        that is crucial for all newly hired and rehired employees.
+                    </p>
+                    <p>
+                        As part of our ongoing commitment to uphold the highest standards of professional integrity and ethical conduct within HP, 
+                        it is mandatory for all new hires and rehired employees to complete this training. The content of this training is designed to acquaint you with
+                        our organizational values, ethical guidelines, and professional conduct expectations, thus laying down a solid foundation
+                        for a harmonious and compliant working environment.
+                    </p>
+                    <p style="margin-bottom: 10px;">
+                        Given your hire date of 07/03/2023, it is requisite that you conclude this training within one month from the mentioned date. 
+                        This is not just a policy but a reflection of our commitment to maintain an open and respectful workspace, and we believe your 
+                        cooperation will strengthen our collective pursuit for excellence and integrity at HP.
+                    </p>
+                </div>
+                <div class="row timeline-container">
+                    <div class="timeline">
+                        <span style="--i:1">6 days remaining!</span>
+                    </div>
+                    <a href="#" style="background: blue;color: white;text-decoration: none;padding:15px 20px;font-size: 1.5em;min-width: 150px;text-align: center;">Start Now</a>
+                </div>
+                <div class="row message" style="padding-top: 0;">
+                    <p >
+                        I am here not only to remind you of the impending timeline but also to motivate you in completing the training successfully. 
+                        Your proactive approach in completing this training will be highly appreciated, and it will contribute significantly to ensuring that 
+                        we all work in adherence to the values and standards set by HP.
+                    </p>
+                    <div class="par-list">
+                        <b>Who to take this training:</b>
+                        <ol style="margin: 2.5px;">
+                            <li>Newly Hired Employees</li>
+                            <li>Converted CW's (Contingent Workers)</li>
+                            <li>Rehired Employees (Must retake the training)</li>
+                        </ol>
+                    </div>
+                    <p>
+                        Thank you for your understanding and cooperation. We are confident that you will complete the training in a timely manner and assimilate the essential values that define our organizational culture.
+                    </p>
+                    <p style="padding-top: 20px;">Best Regards<br/>Franklin Okoye</p>
+                    <p style="display: flex; flex-direction: row;justify-content: flex-start;">
+                        <img src="img.png"/>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

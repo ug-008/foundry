@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <script src="../../lib/VSS.SDK.min.js"></script>
+    </head>
+
+    <body style="overflow:auto;">
+
+        <script>
+            VSS.init({
+                usePlatformScripts: true,
+                explicitNotifyLoaded: true, 
+                usePlatformStyles: true,
+                applyTheme: true
+            })
+        </script>
+
+        <script src="index.js"></script>
+
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            #__selectOptions__ {
+                width: 100%;
+                color: var(--text-primary-color, black);
+                display: flex;
+                flex-direction: column;
+            }
+            #__selectOptions__ #placeholder {
+                display: flex;
+                flex-direction: row;
+                padding: 2.5px 5px 5px;
+                border-radius: 0;
+                border-width: 0;
+                height: 30px;
+                background-color: var(--component-grid-row-hover-color, whitesmoke);
+                color: var(--text-primary-color, black);
+                align-items: center;
+            }
+            #__selectOptions__ #placeholder input#filter {
+                border-width: 0;
+                background: transparent;
+                color: var(--text-primary-color, black);
+                outline: none;
+                opacity: 0.7;
+                font-size: 14px;
+                padding-left: 5px;
+            }
+            #__selectOptions__ #placeholder ::placeholder {
+                /* modern browser */
+                color: var(--text-primary-color, black);
+                font-style: italic;
+            }
+            #__selectOptions__ #placeholder #__dropArrow__ {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 20px;
+                opacity: 0.5;
+                
+            }
+            #__selectOptions__ #__itemList__ {
+                display: flex;
+                flex-direction: column;
+            }
+            #__selectOptions__ #__itemList__ span {
+                padding: 5px;
+                margin-bottom: 1px;
+            }
+            #__selectOptions__ #__sBoard__ {
+                display: none;
+                flex-direction: column;
+            }
+            #__selectOptions__ #__dropList__ {
+                overflow: auto;
+                max-height: 150px;
+                border: 1px solid var(--component-grid-row-hover-color, whitesmoke);
+                display: flex;
+                flex-direction: column;
+            }
+            #__selectOptions__ #__dropList__ .__listItems__ {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            #__selectOptions__ #__dropList__ .__listItems__ .__listItem__ {
+                display: flex;
+                align-items: center;
+                padding-left: 5px;
+            }
+            #__selectOptions__ #__dropList__ .__listItems__ .__listItem__:hover {
+                font-weight: 500;
+                background: blue;
+            }
+            #__selectOptions__ #__dropList__ .__listItems__ .__listItem__:hover .__text__ {
+                color: white;
+            }
+            #__selectOptions__ #__dropList__ .__listItems__ .__listItem__ .__text__ {
+                line-height: 25px;
+                flex: 1;
+                padding-left: 5px;
+            }
+            #__selectOptions__ #__dropList__ .__listItems__ .__listItem__ .__checkbox__ {
+                height: 15px;
+                width: 15px;
+                background-color: transparent;
+                outline: none;
+                border: 1px solid var(--component-grid-row-hover-color, whitesmoke);
+                border-radius: 0;
+            }
+            #__selectOptions__ #__dropList__ .__notFound__ {
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-style: italic;
+                opacity: 0.5;
+                color: red;
+            }
+            #__selectOptions__ #placeholder #loadComplete {
+                width: 20px;
+                height: 20px;
+                display: none;
+            }
+            #__selectOptions__ #placeholder #spinner-container {
+                display: flex;
+            }
+            #__selectOptions__ #placeholder #spinner-container span {
+                margin-left: 5px;
+                color: var(--text-primary-color, black);
+                font-size: 10px;
+                display: flex;
+                align-items: center;
+            }
+            #__selectOptions__ #placeholder #spinner-container #spinner {
+                width: 15px;
+                height: 15px;
+                margin: 0 auto;
+                border: 1px solid #e64a19;
+                border-radius: 50%;
+                border-top-color: transparent;
+                border-left-color: transparent;
+                border-right-color: transparent;
+                box-shadow: 1px 1px 1px green;
+                animation: spin 600ms infinite linear;
+            }
+            @keyframes spin {
+                100%{ transform: rotate(360deg); }
+            }
+        </style>
+        
+        <div id="__selectOptions__">
+            <div id="__itemList__">
+                <!-- Populate -->
+            </div>
+            <div id="__space__">
+                <div id="placeholder">
+                    <input id="filter"
+                            type="text" 
+                            autocomplete="none"
+                            style="flex: 1;" />
+                    <div id="spinner-container" >
+                        <div id="spinner"></div>
+                        <span>Loading...</span>
+                    </div>
+                    <img id="loadComplete" src="checked.png"/>
+                </div>
+                <span id="__hiddenNote__" style="display: none"></span>
+                <div id="__sBoard__">
+                    <div id="__dropList__">
+                        <!-- Populate -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
